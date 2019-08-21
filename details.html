@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <a href="/">Назад</a>
+    <h1>Кот {{cat['name']}}</h1>
+    <img style="height: 100px;" src="{{ cat['photo'] }}"/>
+    <p>{{cat['description']}}</p>
+    <p>
+        <strong>Лайков: {{ cat['likes'] }}</strong></p>
+    <p>
+        <strong>Комментарии:</strong>
+    </p>
+    {% for comment in cat['comments'] %}
+        <h4>{{ comment['author'] }}</h4>
+        <p>{{ comment['text'] }}</p>
+        <small>Дата: {{ comment['date'] }}</small>
+    {% endfor %}
+{% endblock %}
